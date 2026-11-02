@@ -1,0 +1,10 @@
+Primera forma normal:
+- Cada columna en una tabla tiene un nombre único
+- Cada fila es única
+- Todas las columnas contienen valores atómicos. Las columnas como "nombre y dirección" han sido divididas en diferentes secciones.
+
+Segunda forma normal
+- No existen dependencias parciales en la tabla. Cada tabla tiene como mucho una llave primaria de la cual sus otros valores dependen para ser identificados
+
+Tercera forma normal
+-Las Dependencias parciales fueron eliminadas. Todos los valores de cada tabla dependen únicamente de su llave primaria
