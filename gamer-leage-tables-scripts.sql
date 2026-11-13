@@ -23,6 +23,7 @@ CREATE TABLE Permisos (
 CREATE TABLE Roles (
     id_rol INT IDENTITY PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL
+    descripcion VARCHAR(255)
 );
 
 CREATE TABLE RolPermiso (
