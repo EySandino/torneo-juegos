@@ -1,3 +1,11 @@
+INSERT INTO Departamentos (nombre)
+VALUES
+('Direccion y administracion'),
+('Organizacion de torneos'),
+('Departamento tecnologico'),
+('Logistica e infraestructura'),
+('Marketing y relaciones comerciales');
+
 INSERT INTO Roles (nombre, descripcion)
 VALUES
 -- Dirección y administración
