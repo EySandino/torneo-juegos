@@ -44,7 +44,7 @@ CREATE TABLE Roles (
 
 CREATE TABLE RolPermiso (
     id_rol INT NOT NULL,
-    id_permiso DECIMAL(2,2) NOT NULL,
+    id_permiso INT NOT NULL,
     
     CONSTRAINT FK_Rol_Permiso FOREIGN KEY (id_rol) REFERENCES Roles(id_rol),
     CONSTRAINT FK_Permiso_Rol FOREIGN KEY (id_permiso) REFERENCES Permisos(id_permiso)
