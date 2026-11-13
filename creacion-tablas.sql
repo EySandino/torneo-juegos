@@ -23,20 +23,23 @@ CREATE TABLE Permisos (
     id_permiso INT IDENTITY PRIMARY KEY,
     id_categoria INT,
     nombre VARCHAR(20) NOT NULL,
-    descripcion VARCHAR(255) NOT NULL
+    descripcion VARCHAR(255) NOT NULL,
 
-    CONSTRAINT FK_Categoria_Permiso FOREIGN KEY (id_categoria) REFERENCES CategoriaPermisos(id_categoria),
+    CONSTRAINT FK_Categoria_Permiso FOREIGN KEY (id_categoria) REFERENCES CategoriaPermisos(id_categoria)
 );
 
 CREATE TABLE Departamentos (
-    id_departamento IDENTITY PRIMARY KEY,
+    id_departamento INT IDENTITY PRIMARY KEY,
     nombre VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Roles (
     id_rol INT IDENTITY PRIMARY KEY,
-    nombre VARCHAR(20) NOT NULL
-    descripcion VARCHAR(255)
+    id_departamento INT,
+    nombre VARCHAR(20) NOT NULL,
+    descripcion VARCHAR(255),
+
+    CONSTRAINT FK_Departamento_Rol FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento)
 );
 
 CREATE TABLE RolPermiso (
