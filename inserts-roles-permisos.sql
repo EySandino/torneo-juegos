@@ -42,3 +42,70 @@ VALUES
 (5, 'Community manager', 'Administra las redes sociales y comunidades digitales.'),
 (5, 'Ejecutivo comercial', 'Gestiona las relaciones comerciales con patrocinadores.'),
 (5, 'Relaciones publicas', 'Mantiene relaciones con empresas, medios y participantes.');
+
+INSERT INTO CategoriaPermisos (nombre)
+VALUES
+('Administracion'),
+('Torneos'),
+('Participantes'),
+('Resultados'),
+('Inventario'),
+('Instalaciones'),
+('Finanzas'),
+('Reportes'),
+('Marketing'),
+('Tecnologia');
+
+INSERT INTO Permisos (id_categoria, nombre, descripcion)
+VALUES
+-- 1. Administración
+(1, 'Gestionar empleados', 'Permite registrar, consultar, modificar y eliminar empleados.'),
+(1, 'Gestionar roles', 'Permite administrar los roles de los empleados.'),
+(1, 'Gestionar permisos', 'Permite administrar los permisos del sistema.'),
+
+-- 2. Torneos
+(2, 'Crear torneos', 'Permite registrar nuevos torneos.'),
+(2, 'Consultar torneos', 'Permite visualizar la informacion de los torneos.'),
+(2, 'Modificar torneos', 'Permite modificar los datos de torneos existentes.'),
+(2, 'Eliminar torneos', 'Permite eliminar torneos existentes.'),
+
+-- 3. Participantes
+(3, 'Registrar participantes', 'Permite inscribir nuevos participantes.'),
+(3, 'Consultar participantes', 'Permite consultar informacion de participantes.'),
+(3, 'Modificar participantes', 'Permite actualizar informacion de participantes.'),
+(3, 'Eliminar participantes', 'Permite eliminar participantes registrados.'),
+
+-- 4. Resultados
+(4, 'Registrar resultados', 'Permite introducir resultados de partidas.'),
+(4, 'Consultar resultados', 'Permite visualizar resultados de competiciones.'),
+(4, 'Modificar resultados', 'Permite corregir resultados registrados.'),
+
+-- 5. Inventario
+(5, 'Registrar articulos', 'Permite registrar nuevos articulos en inventario.'),
+(5, 'Consultar inventario', 'Permite visualizar los articulos disponibles.'),
+(5, 'Modificar inventario', 'Permite actualizar informacion de articulos.'),
+(5, 'Eliminar articulos', 'Permite eliminar articulos del inventario.'),
+
+-- 6. Instalaciones
+(6, 'Registrar locales', 'Permite registrar nuevas instalaciones.'),
+(6, 'Consultar locales', 'Permite consultar informacion de instalaciones.'),
+(6, 'Modificar locales', 'Permite actualizar informacion de instalaciones.'),
+(6, 'Eliminar locales', 'Permite eliminar instalaciones registradas.'),
+
+-- 7. Finanzas
+(7, 'Consultar finanzas', 'Permite consultar informacion financiera.'),
+(7, 'Gestionar presupuestos', 'Permite crear y modificar presupuestos.'),
+(7, 'Gestionar pagos', 'Permite registrar y administrar pagos.'),
+
+-- 8. Reportes
+(8, 'Consultar reportes', 'Permite visualizar informes de la empresa.'),
+(8, 'Generar reportes', 'Permite generar nuevos informes.'),
+
+-- 9. Marketing
+(9, 'Gestionar campanas', 'Permite administrar campanas publicitarias.'),
+(9, 'Gestionar publicaciones', 'Permite administrar publicaciones y contenido.'),
+
+-- 10. Tecnologia
+(10, 'Gestionar sistemas', 'Permite administrar los sistemas informaticos.'),
+(10, 'Gestionar usuarios', 'Permite administrar cuentas de usuario.'),
+(10, 'Configurar sistemas', 'Permite modificar configuraciones del sistema.');
