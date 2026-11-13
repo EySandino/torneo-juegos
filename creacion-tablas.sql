@@ -20,7 +20,7 @@ CREATE TABLE CategoriaPermisos (
 );
 
 CREATE TABLE Permisos (
-    id_permiso DECIMAL(2,2) PRIMARY KEY,
+    id_permiso INT IDENTITY PRIMARY KEY,
     id_categoria INT,
     nombre VARCHAR(20) NOT NULL,
     descripcion VARCHAR(255) NOT NULL
