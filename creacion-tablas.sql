@@ -14,10 +14,18 @@ CREATE TABLE Monedas (
 
 -- Administración de Personal
 
+CREATE TABLE CategoriaPermisos (
+    id_categoria INT IDENTITY PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE Permisos (
     id_permiso DECIMAL(2,2) PRIMARY KEY,
+    id_categoria INT,
     nombre VARCHAR(20) NOT NULL,
     descripcion VARCHAR(255) NOT NULL
+
+    CONSTRAINT FK_Categoria_Permiso FOREIGN KEY (id_categoria) REFERENCES CategoriaPermisos(id_categoria),
 );
 
 CREATE TABLE Roles (
