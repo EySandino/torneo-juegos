@@ -1,7 +1,3 @@
--- Jugadores y Juegos
-
--- CONTROL DE TORNEOS
-
 CREATE TABLE Torneos (
     id_torneo INT IDENTITY PRIMARY KEY ,
     id_juego VARCHAR(10) NOT NULL,
