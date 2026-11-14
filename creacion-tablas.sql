@@ -9,7 +9,7 @@ USE TORNEOS_DB;
 CREATE TABLE Monedas (
     id_moneda VARCHAR(3) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    pais VARCHAR(20) NOT NULL
+    pais VARCHAR(30) NOT NULL
 );
 
 -- Administración de Personal
@@ -22,7 +22,7 @@ CREATE TABLE CategoriaPermisos (
 CREATE TABLE Permisos (
     id_permiso INT IDENTITY PRIMARY KEY,
     id_categoria INT,
-    nombre VARCHAR(20) NOT NULL,
+    nombre VARCHAR(40) NOT NULL,
     descripcion VARCHAR(255) NOT NULL,
 
     CONSTRAINT FK_Categoria_Permiso FOREIGN KEY (id_categoria) REFERENCES CategoriaPermisos(id_categoria)
@@ -30,13 +30,13 @@ CREATE TABLE Permisos (
 
 CREATE TABLE Departamentos (
     id_departamento INT IDENTITY PRIMARY KEY,
-    nombre VARCHAR(30) NOT NULL
+    nombre VARCHAR(45) NOT NULL
 );
 
 CREATE TABLE Roles (
     id_rol INT IDENTITY PRIMARY KEY,
     id_departamento INT,
-    nombre VARCHAR(20) NOT NULL,
+    nombre VARCHAR(30) NOT NULL,
     descripcion VARCHAR(255),
 
     CONSTRAINT FK_Departamento_Rol FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento)
@@ -51,7 +51,7 @@ CREATE TABLE RolPermiso (
 );
 
 CREATE TABLE Personal (
-    id_personal VARCHAR(5) PRIMARY KEY,
+    id_personal INT IDENTITY PRIMARY KEY,
     id_rol INT NOT NULL,
     numero_cedula VARCHAR(20) UNIQUE NOT NULL,
     estado_civil VARCHAR(10) NOT NULL,
@@ -68,19 +68,18 @@ CREATE TABLE Personal (
 );
 
 CREATE TABLE DireccionesPersonal (
-    id_personal VARCHAR(5) NOT NULL,
+    id_personal INT NOT NULL,
     cod_postal VARCHAR(10) NOT NULL,
 
-    pais VARCHAR(15) NOT NULL,
-    canton VARCHAR(15) NOT NULL,
-    distrito VARCHAR(15) NOT NULL,
-    direccion_exacta VARCHAR(100) NOT NULL,
+    pais VARCHAR(30) NOT NULL,
+    estado VARCHAR(30) NOT NULL,
+    ciudad VARCHAR(30) NOT NULL,
 
     CONSTRAINT FK_IdPersonal_Direccion FOREIGN KEY (id_personal) REFERENCES Personal(id_personal)
 );
 
 CREATE TABLE Salario (
-    id_personal VARCHAR(5) NOT NULL,
+    id_personal INT NOT NULL,
     id_moneda VARCHAR(3) NOT NULL,
     monto INT NOT NULL,
     frecuencia_pago VARCHAR(50) NOT NULL,
@@ -95,10 +94,10 @@ CREATE TABLE Patrocinadores (
     id_patrocinador INT IDENTITY PRIMARY KEY,
     fecha_registro DATE NOT NULL,
 
-    nombre VARCHAR(20) NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
     telefono VARCHAR(20) NOT NULL,
-    correo VARCHAR(50) NOT NULL,
-    sitio_web VARCHAR(50) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    sitio_web VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Inventario (
