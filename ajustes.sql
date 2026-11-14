@@ -18,6 +18,8 @@ SELECT * FROM Salario;
 
 SELECT * FROM DireccionesPersonal;
 
+SELECT * FROM Inventario;
+
 --Ajustes a las columnas
 ALTER TABLE Monedas ALTER COLUMN pais VARCHAR(30);
 
@@ -36,3 +38,5 @@ SELECT id_rol, nombre FROM Roles ORDER BY id_rol;
 SELECT id_permiso, id_categoria, nombre
 FROM Permisos
 ORDER BY id_permiso
+
+DROP TABLE Inventario;
