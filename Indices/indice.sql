@@ -22,9 +22,6 @@ IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Personal_id_rol' AND o
     CREATE NONCLUSTERED INDEX IX_Personal_id_rol ON dbo.Personal(id_rol);
 GO
 
--- Salario(id_personal) ya tiene una restriccion UNIQUE.
--- DireccionesPersonal(id_personal) ya tiene una restriccion UNIQUE.
--- Conversiones(id_moneda) es PRIMARY KEY.
 
 IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_Salario_id_moneda' AND object_id = OBJECT_ID('dbo.Salario'))
     CREATE NONCLUSTERED INDEX IX_Salario_id_moneda ON dbo.Salario(id_moneda);
@@ -65,9 +62,6 @@ GO
 IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_DireccionesJugadores_numero_cedula' AND object_id = OBJECT_ID('dbo.DireccionesJugadores'))
     CREATE NONCLUSTERED INDEX IX_DireccionesJugadores_numero_cedula ON dbo.DireccionesJugadores(numero_cedula);
 GO
-
--- Jugadores(numero_cedula) es PRIMARY KEY.
--- Jugadores(nombre_usuario) ya tiene una restriccion UNIQUE.
 
 -- =========================================================
 -- CONTROL DE TORNEOS
