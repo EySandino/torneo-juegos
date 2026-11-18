@@ -14,7 +14,7 @@ CREATE TABLE Torneos (
     CONSTRAINT FK_Torneo_Juego FOREIGN KEY (id_juego) REFERENCES Videojuegos(id_juego)
 );
 
-CREATE TABLE TorneoPatrocinador (
+CREATE TABLE PatrocinadoesTorneos (
     id_torneo INT NOT NULL,
     id_patrocinador INT NOT NULL,
 
@@ -24,6 +24,17 @@ CREATE TABLE TorneoPatrocinador (
     CONSTRAINT FK_Torneo_Patrocinado FOREIGN KEY (id_torneo) REFERENCES Torneos(id_torneo),
     CONSTRAINT FK_Patrocinador_Torneo FOREIGN KEY (id_patrocinador) REFERENCES Patrocinadores(id_patrocinador),
     CONSTRAINT FK_Moneda_Patrocinador FOREIGN KEY (id_moneda) REFERENCES Monedas(id_moneda)
+);
+
+CREATE TABLE DireccionesTorneos (
+    id_torneo INT PRIMARY KEY,-- Esto evita que hayan mas de una direccion por torneo.
+
+    pais VARCHAR(40),
+    estado VARCHAR(40),
+    ciudad VARCHAR(40),
+    recinto VARCHAR(40),
+
+    CONSTRAINT FK_Torneo_Direccion FOREIGN KEY (id_torneo) REFERENCES Torneos(id_torneo)
 );
 
 CREATE TABLE ActivosTorneo(
@@ -56,16 +67,21 @@ CREATE UNIQUE INDEX UQ_Torneo_Jugador ON Participantes (id_torneo, numero_cedula
 CREATE TABLE Partidos (
     id_partido INT IDENTITY PRIMARY KEY,
     id_torneo INT NOT NULL,
-    fecha_hora_inicio DATETIME NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    hora_inicio TIME NOT NULL,
 
     primer_competidor INT NOT NULL,
     segundo_competidor INT NOT NULL,
+
+    id_ganador INT,
 
     link_estadisticas VARCHAR(100),
 
     CONSTRAINT FK_Partido_Torneo FOREIGN KEY (id_torneo) REFERENCES Torneos(id_torneo),
     CONSTRAINT FK_Partido_J1 FOREIGN KEY (primer_competidor) REFERENCES Participantes(id_participante),
-    CONSTRAINT FK_Partido_J2 FOREIGN KEY (segundo_competidor) REFERENCES Participantes(id_participante)
+    CONSTRAINT FK_Partido_J2 FOREIGN KEY (segundo_competidor) REFERENCES Participantes(id_participante),
+
+    CONSTRAINT CK_Mismo_Participante CHECK (primer_competidor <> segundo_competidor)
 );
 
 CREATE TABLE Premios (
